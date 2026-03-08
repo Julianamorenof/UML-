@@ -1,19 +1,25 @@
-import java.util.*;
-
 public class Main {
 
     public static void main(String[] args) {
 
+        /*
+        RELACIÓN UML: COMPOSICIÓN
+
+        Un Carro está compuesto por un Motor.
+        El motor no existe sin el carro porque
+        se crea dentro del constructor del carro.
+        */
+
         Carro c = new Carro();
 
-        c.ARRANCAR();
+        c.arrancar();
 
     }
 }
 
 class Motor{
 
-    public void ENCENDER(){
+    public void encender(){
         System.out.println("EL MOTOR ESTA ENCENDIDO");
     }
 
@@ -21,14 +27,20 @@ class Motor{
 
 class Carro{
 
+    // Composición: el carro tiene un motor propio
     private Motor motor;
 
     public Carro(){
+
+        // El motor se crea dentro del carro
         motor = new Motor();
+
     }
 
-    public void ARRANCAR(){
-        motor.ENCENDER();
+    public void arrancar(){
+
+        motor.encender();
+
     }
 
 }
