@@ -4,12 +4,21 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<Jugador> lst = new ArrayList<>();
+        // Se crea una lista de jugadores
+        List<Jugador> lista = new ArrayList<>();
 
-        lst.add(new Jugador("Carlos"));
-        lst.add(new Jugador("Luis"));
+        lista.add(new Jugador("Carlos"));
+        lista.add(new Jugador("Luis"));
 
-        Equipo e = new Equipo(lst);
+        /*
+        RELACIÓN UML: AGREGACIÓN
+
+        Un Equipo está formado por varios Jugadores.
+        Sin embargo, los jugadores pueden existir
+        independientemente del equipo.
+        */
+
+        Equipo e = new Equipo(lista);
 
         e.mostrar();
 
@@ -28,6 +37,7 @@ class Jugador{
 
 class Equipo{
 
+    // Agregación: el equipo contiene jugadores
     List<Jugador> jugadores;
 
     public Equipo(List<Jugador> jugadores){
