@@ -6,13 +6,22 @@ public class Main {
 
         Scanner teclado = new Scanner(System.in);
 
-        System.out.println("INGRESE EL NOMBRE DE LA UNIVERSIDAD: ");
+        System.out.println("INGRESE UNIVERSIDAD");
         String uni = teclado.next();
 
+        // Se crea un objeto de la clase Universidad
         Universidad u = new Universidad(uni);
 
-        System.out.println("INGRESE EL NOMBRE DEL ESTUDIANTE:");
+        System.out.println("INGRESE ESTUDIANTE");
         String nombre = teclado.next();
+
+        /*
+        RELACIÓN UML: ASOCIACIÓN
+
+        La clase Estudiante tiene un atributo de tipo Universidad.
+        Esto significa que el estudiante está asociado a una universidad,
+        pero ambos objetos pueden existir por separado.
+        */
 
         Estudiante e = new Estudiante(nombre, u);
 
@@ -21,6 +30,7 @@ public class Main {
     }
 }
 
+// Clase Universidad
 class Universidad{
 
     String nombre;
@@ -31,9 +41,12 @@ class Universidad{
 
 }
 
+// Clase Estudiante asociada a Universidad
 class Estudiante{
 
     String nombre;
+
+    // Asociación: Estudiante tiene una Universidad
     Universidad universidad;
 
     public Estudiante(String nombre, Universidad universidad){
@@ -42,8 +55,7 @@ class Estudiante{
     }
 
     public void mostrar(){
-        System.out.println(nombre + " estudia en la " + universidad.nombre);
+        System.out.println(nombre + " estudia en " + universidad.nombre);
     }
 
 }
-
